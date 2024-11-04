@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace ExemplePOO
+namespace Uml1Terrain
 {
     public class Terrain : Bien
     {

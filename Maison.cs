@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace ExemplePOO
+namespace Uml1Terrain
 {
     public class Maison : Bien
     {
         public int NbPieces;
         public bool Jardin;
+        public List<Piece> Pieces;
 
         public Maison(string adresse, float superficie, int nbPieces, bool jardin) : base(adresse, superficie)
         {
             NbPieces = nbPieces;
             Jardin = jardin;
+            Pieces = new List<Piece>();
         }
 
         public override string ToString()

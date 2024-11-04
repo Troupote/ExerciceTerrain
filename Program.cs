@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExemplePOO
+namespace Uml1Terrain
 {
     public class Program
     {
