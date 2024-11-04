@@ -1,44 +1,22 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace ExemplePOO
 {
-    public class Terrain
+    public class Program
     {
-        public string Adresse;
-        public float Superficie;
-        public int NbCoteCloture;
-        public bool Rivière;
-
-        public Terrain(string adresse, float superficie, int nbCoteCloture, bool rivière)
+        static void Main(string[] args)
         {
-            Adresse = adresse;
-            Superficie = superficie;
-            NbCoteCloture = nbCoteCloture;
-            Rivière = rivière;
-        }
+            Terrain UneTerrain = new Terrain("11 Rue des Chartreux, 69001 Lyon", 58f, 4, false);
+            Terrain UneAutreTerrain = new Terrain("4 place Saint Louis, 22100 Dinan", 86.5f, 5, true);
+            Terrain UneDerniereTerrain = new Terrain("26 Boulevard Claude Lorrin, 40100 Dax", 25.2f, 4, false);
 
-        public override string ToString()
-        {
-            string toString = String.Format("Adresse = {0}\n", this.Adresse);
-            toString += String.Format("Superficie = {0}m²\n", this.Superficie);
-            toString += String.Format("Nombre de coté de cloture = {0}\n", this.NbCoteCloture);
-            toString += String.Format("Présence d'un Rivière = {0}\n", this.Rivière ? "Oui" : "Non");
-            toString += String.Format("> VALEUR = {0}$", this.EvaluationValeur());
-            return toString;
-        }
+            Terrain[] CatalogueTerrains = new Terrain[] { UneTerrain, UneAutreTerrain, UneDerniereTerrain };
 
-        public float EvaluationValeur()
-        {
-            int facteur = 3000;
-
-            if (this.Rivière) { facteur += 500; }
-            if (this.NbCoteCloture > 3) { facteur += 200; }
-
-            if (Regex.IsMatch(this.Adresse, @"\bParis\b")) { facteur += 7000; }
-            else if (Regex.IsMatch(this.Adresse, @"\bLyon\b")) { facteur += 2000; }
-
-            return this.Superficie * facteur;
+            foreach (Terrain T in CatalogueTerrains)
+            {
+                Console.WriteLine(T);
+                Console.WriteLine();
+            }
         }
     }
 }
