@@ -19,8 +19,7 @@ namespace Uml1Terrain
 
         public override string ToString()
         {
-            string toString = String.Format("Nom = {0}\n", this.Nom);
-            toString += String.Format("Superficie = {0}m²\n", this.Superficie);
+            string toString = String.Format("La pièce {0} fait {1}m²", this.Nom, this.Superficie);
             return toString;
         }
     }

@@ -10,26 +10,33 @@ namespace Uml1Terrain
     {
         public string Nom;
         public string Prenom;
-        public List<Bien> Biens;
+        public Bien[] Biens = new Bien[0];
 
-        public Proprietaire(string nom, string prenom, List<Bien> ListBiens)
+
+        public Proprietaire(string nom, string prenom, Bien[] biens)
         {
-            Nom = nom;
-            Prenom = prenom;
-            Biens = ListBiens;
+            this.Nom = nom;
+            this.Prenom = prenom;
+            this.Biens = biens;
+        }
+
+        private string ListeBiens()
+        {
+            string listeBiens = "";
+            foreach (Bien B in this.Biens)
+            {
+                listeBiens += String.Format("- {0} {1} au {2}\n", B.GetType().Name == "Maison" ? "Une" : "Un", B.GetType().Name, B.Adresse);
+            }
+            return listeBiens;
         }
 
         public override string ToString()
         {
-            string toString = String.Format("Nom = {0}\n", this.Nom);
-            toString += String.Format("Prénom = {0}\n", this.Prenom);
-            toString += "Biens :\n";
-            foreach (Bien bien in this.Biens)
-            {
-                toString += bien.ToString();
-            }
+            string toString = String.Format("{1} {0} {2}", this.Nom, this.Prenom, this.Biens?.Length != 0 ? "possède\n" : "ne possède aucun bien");
+            toString += ListeBiens();
             return toString;
         }
+    }
 
-        }
 }
+
