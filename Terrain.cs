@@ -16,7 +16,9 @@ namespace Uml1Terrain
 
         public override string ToString()
         {
-            string toString = String.Format("Nombre de cotés clorutés = {0}\n", this.NbCotesClotures);
+            string toString = String.Format("Adresse = {0}\n", this.Adresse);
+            toString += String.Format("Superficie = {0}m²\n", this.Superficie);
+            toString += String.Format("Nombre de cotés clorutés = {0}\n", this.NbCotesClotures);
             toString += String.Format("Présence d'une rivière = {0}\n", this.Riviere ? "Oui" : "Non");
             toString += String.Format("> VALEUR = {0}$\n", this.EvaluationValeur());
             return toString;
