@@ -13,12 +13,16 @@ namespace Uml1Terrain
             Terrain UnTerrain = new Terrain("55 route cabossée, 29130 Locmaria-Plouzané", 5000f, 2, true);
             Terrain UnAutreTerrain = new Terrain("102 route des volcans, 63000 Clermont-Ferrand", 1500f, 4, false);
 
-            Bien[] CatalogueBiens = new Bien[] { UneMaison, UneAutreMaison, UneDerniereMaison, UnTerrain, UnAutreTerrain };
+            List<Bien> UnListDeBiens = new List<Bien> { UneMaison, UneAutreMaison, UneDerniereMaison, UnTerrain, UnAutreTerrain };
 
-            foreach (Bien B in CatalogueBiens)
+            Proprietaire UnProprietaire = new Proprietaire("Dupont", "Jean", UnListDeBiens);
+
+            Console.WriteLine(@"Propriétaire : {0} {1}", UnProprietaire.Prenom, UnProprietaire.Nom);
+            foreach (Bien B in UnProprietaire.Biens)
             {
                 Console.WriteLine(B);
             }
         }
     }
 }
+ 
