@@ -7,23 +7,23 @@ namespace ExemplePOO
     {
         public string Adresse;
         public float Superficie;
-        public int NbPieces;
-        public bool Jardin;
+        public int NbCoteCloture;
+        public bool Rivière;
 
-        public Terrain(string adresse, float superficie, int nbPieces, bool jardin)
+        public Terrain(string adresse, float superficie, int nbCoteCloture, bool rivière)
         {
             Adresse = adresse;
             Superficie = superficie;
-            NbPieces = nbPieces;
-            Jardin = jardin;
+            NbCoteCloture = nbCoteCloture;
+            Rivière = rivière;
         }
 
         public override string ToString()
         {
             string toString = String.Format("Adresse = {0}\n", this.Adresse);
             toString += String.Format("Superficie = {0}m²\n", this.Superficie);
-            toString += String.Format("Nombre de pièces = {0}\n", this.NbPieces);
-            toString += String.Format("Présence d'un jardin = {0}\n", this.Jardin ? "Oui" : "Non");
+            toString += String.Format("Nombre de coté de cloture = {0}\n", this.NbCoteCloture);
+            toString += String.Format("Présence d'un Rivière = {0}\n", this.Rivière ? "Oui" : "Non");
             toString += String.Format("> VALEUR = {0}$", this.EvaluationValeur());
             return toString;
         }
@@ -32,8 +32,8 @@ namespace ExemplePOO
         {
             int facteur = 3000;
 
-            if (this.Jardin) { facteur += 500; }
-            if (this.NbPieces > 3) { facteur += 200; }
+            if (this.Rivière) { facteur += 500; }
+            if (this.NbCoteCloture > 3) { facteur += 200; }
 
             if (Regex.IsMatch(this.Adresse, @"\bParis\b")) { facteur += 7000; }
             else if (Regex.IsMatch(this.Adresse, @"\bLyon\b")) { facteur += 2000; }
