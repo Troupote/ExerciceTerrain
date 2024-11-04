@@ -9,11 +9,11 @@ namespace Uml1Terrain
         public bool Jardin;
         public List<Piece> Pieces;
 
-        public Maison(string adresse, float superficie, int nbPieces, bool jardin) : base(adresse, superficie)
+        public Maison(string adresse, float superficie, int nbPieces, bool jardin, List<Piece> ListeDePiece) : base(adresse, superficie)
         {
             NbPieces = nbPieces;
             Jardin = jardin;
-            Pieces = new List<Piece>();
+            Pieces = ListeDePiece;
         }
 
         public override string ToString()
@@ -22,6 +22,12 @@ namespace Uml1Terrain
             toString += String.Format("Superficie = {0}m²\n", this.Superficie);
             toString += String.Format("Nombre de pièces = {0}\n", this.NbPieces);
             toString += String.Format("Présence d'un jardin = {0}\n", this.Jardin ? "Oui" : "Non");
+            toString += "Pièces : ";
+            foreach (Piece piece in this.Pieces)
+            {
+                toString += piece.Nom.ToString() + " ";
+            }
+            toString += "\n";
             toString += String.Format("> VALEUR = {0}$\n", this.EvaluationValeur());
             return toString;
         }
