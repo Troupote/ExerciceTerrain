@@ -6,18 +6,19 @@ namespace ExemplePOO
     {
         static void Main(string[] args)
         {
-            Terrain UnTerrain = new Terrain("11 Rue des Chartreux, 69001 Lyon", 58f, 4, false);
-            Terrain UnAutreTerrain = new Terrain("4 place Saint Louis, 22100 Dinan", 86.5f, 5, true);
-            Terrain UnDerniereTerrain = new Terrain("26 Boulevard Claude Lorrin, 40100 Dax", 25.2f, 4, false);
+            Maison UneMaison = new Maison("11 Rue des Chartreux, 69001 Lyon", 58f, 4, false);
+            Maison UneAutreMaison = new Maison("4 place Saint Louis, 22100 Dinan", 86.5f, 5, true);
+            Maison UneDerniereMaison = new Maison("26 Boulevard Claude Lorrin, 40100 Dax", 25.2f, 2, false);
 
-            Terrain[] CatalogueTerrains = new Terrain[] { UnTerrain, UnAutreTerrain, UnDerniereTerrain };
+            Terrain UnTerrain = new Terrain("55 route cabossée, 29130 Locmaria-Plouzané", 5000f, 2, true);
+            Terrain UnAutreTerrain = new Terrain("102 route des volcans, 63000 Clermont-Ferrand", 1500f, 4, false);
 
-            foreach (Terrain T in CatalogueTerrains)
+            Bien[] CatalogueBiens = new Bien[] { UneMaison, UneAutreMaison, UneDerniereMaison, UnTerrain, UnAutreTerrain };
+
+            foreach (Bien B in CatalogueBiens)
             {
-                Console.WriteLine(T);
-                Console.WriteLine();
+                Console.WriteLine(B);
             }
         }
     }
 }
-
