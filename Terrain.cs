@@ -25,6 +25,7 @@ namespace ExemplePOO
             toString += String.Format("Nombre de coté de cloture = {0}\n", this.NbCoteCloture);
             toString += String.Format("Présence d'un Rivière = {0}\n", this.Rivière ? "Oui" : "Non");
             toString += String.Format("> VALEUR = {0}$", this.EvaluationValeur());
+            toString += String.Format("\n> Cout pour finir la cloture = {0}$", this.CoutFinirCloture());
             return toString;
         }
 
@@ -43,7 +44,7 @@ namespace ExemplePOO
 
         public int CoutFinirCloture()
         {
-            return this.NbCoteCloture * 100;
+            return (int)(this.Superficie * this.NbCoteCloture);
         }
     }
 }
